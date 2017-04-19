@@ -123,6 +123,7 @@ namespace QuickGraph
 
         public int AddVertexRange(IEnumerable<TVertex> vertices)
         {
+            Contract.Requires(vertices != null);
             int count = 0;
             foreach (var v in vertices)
                 if (this.AddVertex(v))
@@ -177,6 +178,7 @@ namespace QuickGraph
 
         public int RemoveVertexIf(VertexPredicate<TVertex> pred)
         {
+            Contract.Requires(pred != null);
             var vertices = new List<TVertex>();
             foreach (var v in this.Vertices)
                 if (pred(v))
@@ -191,6 +193,7 @@ namespace QuickGraph
         #region IMutableIncidenceGraph<Vertex,Edge> Members
         public int RemoveAdjacentEdgeIf(TVertex v, EdgePredicate<TVertex, TEdge> predicate)
         {
+            Contract.Requires(predicate != null);
             var outEdges = this.adjacentEdges[v];
             var edges = new List<TEdge>(outEdges.Count);
             foreach (var edge in outEdges)
@@ -317,6 +320,7 @@ namespace QuickGraph
 
         public int AddVerticesAndEdgeRange(IEnumerable<TEdge> edges)
         {
+            Contract.Requires(edges != null);
             int count = 0;
             foreach (var edge in edges)
                 if (this.AddVerticesAndEdge(edge))
@@ -347,6 +351,7 @@ namespace QuickGraph
 
         public int AddEdgeRange(IEnumerable<TEdge> edges)
         {
+            Contract.Requires(edges != null);
             int count = 0;
             foreach (var edge in edges)
                 if (this.AddEdge(edge))
@@ -388,6 +393,7 @@ namespace QuickGraph
 
         public int RemoveEdgeIf(EdgePredicate<TVertex, TEdge> predicate)
         {
+            Contract.Requires(predicate != null);
             List<TEdge> edges = new List<TEdge>();
             foreach (var edge in this.Edges)
             {
@@ -399,6 +405,7 @@ namespace QuickGraph
 
         public int RemoveEdges(IEnumerable<TEdge> edges)
         {
+            Contract.Requires(edges != null);
             int count = 0;
             foreach (var edge in edges)
             {

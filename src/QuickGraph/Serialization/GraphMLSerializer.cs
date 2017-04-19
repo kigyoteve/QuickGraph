@@ -55,6 +55,7 @@ namespace QuickGraph.Serialization
         /// <param name="value"></param>
         public static void WriteArray<T>(XmlWriter xmlWriter, IList<T> value)
         {
+            Contract.Requires(xmlWriter != null);
             if (value == null)
             {
                 xmlWriter.WriteString("null");

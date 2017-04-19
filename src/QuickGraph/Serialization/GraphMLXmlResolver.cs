@@ -44,6 +44,7 @@ namespace QuickGraph.Serialization
  
         public override object GetEntity(Uri absoluteUri, string role, Type ofObjectToReturn)
         {
+            Contract.Requires(absoluteUri != null);
             if (absoluteUri.AbsoluteUri == "http://www.graphdrawing.org/dtds/graphml.dtd")
                 return typeof(GraphMLExtensions).Assembly.GetManifestResourceStream(typeof(GraphMLExtensions), "graphml.dtd");
             else if (absoluteUri.AbsoluteUri == "http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd")

@@ -56,6 +56,8 @@ namespace QuickGraph.Serialization
         public static T[] ReadElementContentAsArray<T>(XmlReader xmlReader, string localName, string namespaceURI,
                                                         Func<string, T> stringToT)
         {
+            Contract.Requires(xmlReader != null);
+            Contract.Requires(stringToT != null);
             var str = xmlReader.ReadElementContentAsString(localName, namespaceURI);
 
             if (str == "null")
