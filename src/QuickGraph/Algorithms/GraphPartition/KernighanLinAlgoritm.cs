@@ -20,7 +20,6 @@ namespace QuickGraph.Algorithms.KernighanLinAlgoritm
         public KernighanLinAlgoritm(UndirectedGraph<TVertex, TEdge> g, int itersNum) 
         {
 			Contract.Requires(g != null);
-			Contract.Requires(itersNum != null);
 			this.g = g;
             this.itersNum = itersNum;
             this.partitionSize = g.Vertices.Count() / 2;
