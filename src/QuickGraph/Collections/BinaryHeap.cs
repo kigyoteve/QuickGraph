@@ -73,14 +73,13 @@ namespace QuickGraph.Collections
             this.version++;
             this.ResizeArray();
             this.items[this.count++] = new KeyValuePair<TPriority, TValue>(priority, value);
-            this.MinHeapifyDown(this.count - 1);
+            this.MinHeapifyUp(this.count - 1);
 #if BINARY_HEAP_DEBUG
             Console.WriteLine("Add: {0}", ToString2());
 #endif
         }
 
-        // TODO: MinHeapifyDown is really MinHeapifyUp.  Do the renaming
-        private void MinHeapifyDown(int start)
+        private void MinHeapifyUp(int start)
         {
 #if BINARY_HEAP_DEBUG
             Console.WriteLine("MinHeapifyDown");
@@ -215,7 +214,7 @@ namespace QuickGraph.Collections
             }
             this.Swap(0, this.count - 1);
             this.count--;
-            this.MinHeapifyUp(0);
+            this.MinHeapifyDown(0);
             return this.items[this.count];
         }
 
@@ -243,13 +242,12 @@ namespace QuickGraph.Collections
 
             this.Swap(index, this.count - 1);
             this.count--;
-            this.MinHeapifyUp(index);
+            this.MinHeapifyDown(index);
 
             return this.items[this.count];
         }
 
-        // TODO: MinHeapifyUp is really MinHeapifyDown.  Do the renaming
-        private void MinHeapifyUp(int index)
+        private void MinHeapifyDown(int index)
         {
 #if BINARY_HEAP_DEBUG
             Console.WriteLine("MinHeapifyUp");
@@ -318,9 +316,9 @@ namespace QuickGraph.Collections
                 this.items[index] = new KeyValuePair<TPriority,TValue>(neww, value);
 
                 if (this.priorityComparsion(neww, oldd) > 0)
-                    MinHeapifyUp(index);
-                else if (this.priorityComparsion(neww, oldd) < 0)
                     MinHeapifyDown(index);
+                else if (this.priorityComparsion(neww, oldd) < 0)
+                    MinHeapifyUp(index);
             }
             else
             {
