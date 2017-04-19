@@ -221,5 +221,13 @@ namespace QuickGraph.Algorithms.TSP
             }
             return costCompare;
         }
-    }
+
+		public static bool operator <(TaskPriority left, TaskPriority right) {
+			return left.CompareTo(right) < 0;
+		}
+
+		public static bool operator >(TaskPriority left, TaskPriority right) {
+			return left.CompareTo(right) > 0;
+		}
+	}
 }
