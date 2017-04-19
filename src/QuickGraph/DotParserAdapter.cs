@@ -8,6 +8,7 @@ namespace QuickGraph
 
     public class DotParserAdapter
     {
+		private DotParserAdapter() { }
         /// <param name="dotSource"></param>
         /// <param name="createGraph">Graph constructor function</param>
         /// <param name="vertexFunc">Packing function (see VertexFactory class)</param>
@@ -40,7 +41,9 @@ namespace QuickGraph
 
         public class Common
         {
-            public static int? GetWeightNullable(Attributes attrs)
+			private Common() { }
+
+			public static int? GetWeightNullable(Attributes attrs)
             {
                 int weight;
                 return int.TryParse(attrs["weight"], out weight) ? (int?) weight : null;
@@ -57,7 +60,10 @@ namespace QuickGraph
 
         public class VertexFactory
         {
-            public static Func<string, Attributes, string>
+
+			private VertexFactory() { }
+
+			public static Func<string, Attributes, string>
                 Name = (v, attrs) => v;
 
 
@@ -82,7 +88,10 @@ namespace QuickGraph
 
         public class EdgeFactory<TVertex>
         {
-            public static Func<TVertex, TVertex, Attributes, SEdge<TVertex>>
+
+			private EdgeFactory() { }
+
+			public static Func<TVertex, TVertex, Attributes, SEdge<TVertex>>
                 VerticesOnly = (v1, v2, attrs) => new SEdge<TVertex>(v1, v2);
 
 

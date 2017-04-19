@@ -7,6 +7,9 @@ namespace QuickGraph
 {
     public class EquateGraphs
     {
+
+		private EquateGraphs() { }
+
         public static bool Equate<V, E>(IVertexAndEdgeListGraph<V, E> g, IVertexAndEdgeListGraph<V, E> h,
             IEqualityComparer<V> vertexEquality, IEqualityComparer<E> edgeEquality)
             where E : IEdge<V>
