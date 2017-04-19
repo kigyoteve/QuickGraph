@@ -72,7 +72,6 @@ namespace QuickGraph.Algorithms
 //#endif
                 //adding reverse edges
                 reverser = new ReversedEdgeAugmentorAlgorithm<TVertex, TEdge>(
-                    this,
                     this.VisitedGraph,
                     this.EdgeFactory
                     );

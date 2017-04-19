@@ -131,7 +131,6 @@ namespace QuickGraph.Algorithms.RankedShortestPath
                     this.EnqueueDeviationPaths(
                         queue,
                         root,
-                        successors,
                         distances,
                         path.ToArray(),
                         startEdge
@@ -166,7 +165,6 @@ namespace QuickGraph.Algorithms.RankedShortestPath
             this.EnqueueDeviationPaths(
                 queue,
                 root,
-                successors,
                 distances,
                 path.ToArray(),
                 0);
@@ -199,17 +197,15 @@ namespace QuickGraph.Algorithms.RankedShortestPath
         }
 
         private void EnqueueDeviationPaths(
-            IQueue<DeviationPath> queue, 
+            IQueue<DeviationPath> queue,
             TVertex root,
-            IDictionary<TVertex, TEdge> successors, 
-            IDictionary<TVertex, double> distances, 
+            IDictionary<TVertex, double> distances,
             TEdge[] path,
             int startEdge
             )
         {
             Contract.Requires(queue != null);
             Contract.Requires(root != null);
-            Contract.Requires(successors != null);
             Contract.Requires(distances != null);
             Contract.Requires(path != null);
             Contract.Requires(EdgeExtensions.IsAdjacent<TVertex, TEdge>(path[0], root));
@@ -223,14 +219,12 @@ namespace QuickGraph.Algorithms.RankedShortestPath
                 var edge = path[iedge];
                 if (iedge >= startEdge)
                     this.EnqueueDeviationPaths(
-                        queue, 
-                        distances, 
-                        path, 
-                        iedge, 
-                        previousVertex, 
-                        previousWeight,
-                        pathVertices
-                        );
+                        queue,
+                        distances,
+                        path,
+                        iedge,
+                        previousVertex,
+                        previousWeight);
 
                 // update counter
                 previousVertex = edge.Target;
@@ -247,14 +241,12 @@ namespace QuickGraph.Algorithms.RankedShortestPath
         }
 
         private void EnqueueDeviationPaths(
-            IQueue<DeviationPath> queue, 
-            IDictionary<TVertex, double> distances, 
-            TEdge[] path, 
-            int iedge, 
-            TVertex previousVertex, 
-            double previousWeight,
-            Dictionary<TVertex, int> pathVertices
-            )
+            IQueue<DeviationPath> queue,
+            IDictionary<TVertex, double> distances,
+            TEdge[] path,
+            int iedge,
+            TVertex previousVertex,
+            double previousWeight)
         {
             Contract.Requires(queue != null);
             Contract.Requires(distances != null);
