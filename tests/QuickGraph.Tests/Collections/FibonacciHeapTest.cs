@@ -137,7 +137,7 @@ namespace QuickGraph.Tests.Collections
                 count++;
             }
             int? lastValue = null;
-            foreach (var value in heap.GetDestructiveEnumerator())
+            foreach (var value in heap.GetDestructiveEnumerator)
             {
                 if (lastValue == null)
                 {
@@ -165,7 +165,7 @@ namespace QuickGraph.Tests.Collections
             }
             int? lastValue = null;
 
-            foreach (var value in heap.GetDestructiveEnumerator())
+            foreach (var value in heap.GetDestructiveEnumerator)
             {
                 if (lastValue == null)
                 {
@@ -194,7 +194,7 @@ namespace QuickGraph.Tests.Collections
             }
             int? lastValue = null;
             heap.ChangeKey(cells[9], -1);
-            foreach (var value in heap.GetDestructiveEnumerator())
+            foreach (var value in heap.GetDestructiveEnumerator)
             {
                 if (lastValue == null)
                 {
@@ -223,7 +223,7 @@ namespace QuickGraph.Tests.Collections
             }
             int? lastValue = null;
             heap.ChangeKey(cells[0], 100);
-            foreach (var value in heap.GetDestructiveEnumerator())
+            foreach (var value in heap.GetDestructiveEnumerator)
             {
                 if (lastValue == null)
                 {
@@ -252,7 +252,7 @@ namespace QuickGraph.Tests.Collections
             }
             int? lastValue = null;
             heap.ChangeKey(cells[9], -1);
-            foreach (var value in heap.GetDestructiveEnumerator())
+            foreach (var value in heap.GetDestructiveEnumerator)
             {
                 if (lastValue == null)
                 {
@@ -281,7 +281,7 @@ namespace QuickGraph.Tests.Collections
             }
             int? lastValue = null;
             heap.ChangeKey(cells[0], 100);
-            foreach (var value in heap.GetDestructiveEnumerator())
+            foreach (var value in heap.GetDestructiveEnumerator)
             {
                 if (lastValue == null)
                 {
@@ -310,7 +310,7 @@ namespace QuickGraph.Tests.Collections
             }
             int? lastValue = null;
             heap.ChangeKey(cells[0], 0);
-            foreach (var value in heap.GetDestructiveEnumerator())
+            foreach (var value in heap.GetDestructiveEnumerator)
             {
                 if (lastValue == null)
                 {
@@ -343,7 +343,7 @@ namespace QuickGraph.Tests.Collections
             count--;
             heap.ChangeKey(cells[6], 3);
             heap.ChangeKey(cells[7], 2);
-            foreach (var value in heap.GetDestructiveEnumerator())
+            foreach (var value in heap.GetDestructiveEnumerator)
             {
                 if (lastValue == null)
                 {
@@ -376,7 +376,7 @@ namespace QuickGraph.Tests.Collections
             count--;
             heap.ChangeKey(cells[5], 10);
             string s = (heap as FibonacciHeap<int, string>).DrawHeap();
-            foreach (var value in heap.GetDestructiveEnumerator())
+            foreach (var value in heap.GetDestructiveEnumerator)
             {
                 if (lastValue == null)
                 {
@@ -408,7 +408,7 @@ namespace QuickGraph.Tests.Collections
             var DeletedCell = cells[8];
             heap.Delete(DeletedCell);
             count -= 2;
-            foreach (var value in heap.GetDestructiveEnumerator())
+            foreach (var value in heap.GetDestructiveEnumerator)
             {
                 if (lastValue == null)
                 {
@@ -463,7 +463,7 @@ namespace QuickGraph.Tests.Collections
             }
             heap2.Merge(heap);
             int? lastValue = null;
-            foreach (var value in heap2.GetDestructiveEnumerator())
+            foreach (var value in heap2.GetDestructiveEnumerator)
             {
                 if (lastValue == null)
                 {
@@ -505,7 +505,7 @@ namespace QuickGraph.Tests.Collections
             heap.Dequeue();
             count = 7;
             int? lastValue = null;
-            foreach (var value in heap.GetDestructiveEnumerator())
+            foreach (var value in heap.GetDestructiveEnumerator)
             {
                 if (lastValue == null)
                 {
@@ -546,7 +546,7 @@ namespace QuickGraph.Tests.Collections
             heap.Dequeue();
             count = 7;
             int? lastValue = null;
-            foreach (var value in heap.GetDestructiveEnumerator())
+            foreach (var value in heap.GetDestructiveEnumerator)
             {
                 if (lastValue == null)
                 {

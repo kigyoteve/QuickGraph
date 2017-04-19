@@ -593,13 +593,15 @@ namespace QuickGraph.Collections
                 tempHeap.Dequeue();
             }
         }
-        public IEnumerable<KeyValuePair<TPriority, TValue>> GetDestructiveEnumerator()
+        public IEnumerable<KeyValuePair<TPriority, TValue>> GetDestructiveEnumerator
         {
-            while (!this.IsEmpty)
-            {
-                yield return this.Top.ToKeyValuePair();
-                this.Dequeue();
-            }
+			get
+			{
+				while(!this.IsEmpty) {
+					yield return this.Top.ToKeyValuePair();
+					this.Dequeue();
+				}
+			}
         }
 
         #region IEnumerable Members

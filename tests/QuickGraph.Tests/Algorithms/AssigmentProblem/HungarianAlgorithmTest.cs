@@ -22,7 +22,7 @@ namespace QuickGraph.Tests.Algorithms.AssigmentProblem
         {
             var matrix = new[,] { { 1, 2, 3 }, { 3, 3, 3 }, { 3, 3, 2 } };
             var algorithm = new HungarianAlgorithm(matrix);
-            var iterations = algorithm.GetIterations();
+            var iterations = algorithm.GetIterations;
             var res = algorithm.AgentsTasks;
             Assert.AreEqual(res[0], 0);
             Assert.AreEqual(res[1], 1);

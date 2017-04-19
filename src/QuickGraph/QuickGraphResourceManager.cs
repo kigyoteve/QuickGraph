@@ -9,14 +9,20 @@ namespace QuickGraph
 {
     public static class QuickGraphResourceManager
     {
-        public static Image GetLogo()
+        public static Image GetLogo
         {
-            return GetImage("quickgraph");
+			get
+			{
+				return GetImage("quickgraph");
+			}
         }
 
-        public static Image GetBanner()
+        public static Image GetBanner
         {
-            return GetImage("quickgraph.banner");
+			get
+			{
+				return GetImage("quickgraph.banner");
+			}
         }
 
         private static Image GetImage(string name)
@@ -30,8 +36,8 @@ namespace QuickGraph
         {
             Contract.Requires(path != null);
 
-            GetLogo().Save(Path.Combine(path, "quickgraph.png"), System.Drawing.Imaging.ImageFormat.Png);
-            GetBanner().Save(Path.Combine(path, "quickgraph.banner.png"), System.Drawing.Imaging.ImageFormat.Png);
+            GetLogo.Save(Path.Combine(path, "quickgraph.png"), System.Drawing.Imaging.ImageFormat.Png);
+            GetBanner.Save(Path.Combine(path, "quickgraph.banner.png"), System.Drawing.Imaging.ImageFormat.Png);
         }
     }
 }

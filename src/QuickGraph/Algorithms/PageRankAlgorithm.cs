@@ -160,19 +160,24 @@ namespace QuickGraph.Algorithms.Ranking
             Console.WriteLine("{0}, {1}", iter, error);
         }
 
-        public double GetRanksSum()
+        public double GetRanksSum
         {
-            double sum = 0;
-            foreach (double rank in this.ranks.Values)
-            {
-                sum += rank;
-            }
-            return sum;
+			get
+			{
+				double sum = 0;
+				foreach(double rank in this.ranks.Values) {
+					sum += rank;
+				}
+				return sum;
+			}
         }
 
-        public double GetRanksMean()
+        public double GetRanksMean
         {
-            return GetRanksSum() / this.ranks.Count;
+			get
+			{
+				return GetRanksSum / this.ranks.Count;
+			}
         }
     }
 }

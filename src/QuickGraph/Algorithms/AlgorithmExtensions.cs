@@ -743,7 +743,7 @@ this
             var incrementalComponents = new IncrementalConnectedComponentsAlgorithm<TVertex, TEdge>(g);
             incrementalComponents.Compute();
 
-            return () => incrementalComponents.GetComponents();
+            return () => incrementalComponents.GetComponents;
         }
 
         /// <summary>
