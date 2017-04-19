@@ -83,6 +83,8 @@ namespace QuickGraph.Algorithms.MaximumFlow
             this.source = source;
             this.sink = sink;
             this.capacities = capacities;
+            this.vertexFactory = vertexFactory;
+            this.edgeFactory = edgeFactory;
 
             // setting preflow = l(e) = 1
             foreach (var edge in this.VisitedGraph.Edges)

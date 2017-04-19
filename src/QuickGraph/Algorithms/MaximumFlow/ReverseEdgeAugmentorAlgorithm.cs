@@ -21,13 +21,6 @@ namespace QuickGraph.Algorithms.MaximumFlow
         public ReversedEdgeAugmentorAlgorithm(
             IMutableVertexAndEdgeListGraph<TVertex, TEdge> visitedGraph,
             EdgeFactory<TVertex, TEdge> edgeFactory)
-            : this(null, visitedGraph, edgeFactory)
-        { }
-
-        public ReversedEdgeAugmentorAlgorithm(
-            IAlgorithmComponent host,
-            IMutableVertexAndEdgeListGraph<TVertex,TEdge> visitedGraph,
-            EdgeFactory<TVertex,TEdge> edgeFactory)
         {
             Contract.Requires(visitedGraph != null);
             Contract.Requires(edgeFactory != null);
