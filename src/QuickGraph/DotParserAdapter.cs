@@ -6,7 +6,7 @@ namespace QuickGraph
 {
     using Attributes = IDictionary<string, string>;
 
-    public class DotParserAdapter
+    public sealed class DotParserAdapter
     {
 		private DotParserAdapter() { }
         /// <param name="dotSource"></param>
@@ -39,7 +39,7 @@ namespace QuickGraph
             return graph;
         }
 
-        public class Common
+		public sealed class Common
         {
 			private Common() { }
 
@@ -58,7 +58,7 @@ namespace QuickGraph
             }
         }
 
-        public class VertexFactory
+        public sealed class VertexFactory
         {
 
 			private VertexFactory() { }
@@ -86,7 +86,7 @@ namespace QuickGraph
         }
 
 
-        public class EdgeFactory<TVertex>
+        public sealed class EdgeFactory<TVertex>
         {
 
 			private EdgeFactory() { }

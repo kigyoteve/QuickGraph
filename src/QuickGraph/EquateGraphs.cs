@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QuickGraph
 {
-    public class EquateGraphs
+    public sealed class EquateGraphs
     {
 
 		private EquateGraphs() { }
