@@ -376,7 +376,6 @@
     <Compile Include="ArrayBidirectionalGraph.cs" />
     <Compile Include="DotParserAdapter.cs" />
     <Compile Include="EquatableTermEdge.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="IClusteredGraph.cs" />
     <Compile Include="ITermBidirectionalGraph.cs" />
     <Compile Include="NoPathFoundException.cs" />
