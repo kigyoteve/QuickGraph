@@ -12,7 +12,7 @@ namespace QuickGraph.Algorithms.RandomWalks
         where TEdge : IEdge<TVertex>
     {
         private IDictionary<TEdge, double> weights;
-        public WeightedMarkovEdgeChainBase(IDictionary<TEdge, double> weights)
+        protected WeightedMarkovEdgeChainBase(IDictionary<TEdge, double> weights)
         {
             Contract.Requires(weights != null);
 

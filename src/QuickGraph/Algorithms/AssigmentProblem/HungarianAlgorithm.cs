@@ -38,24 +38,25 @@ namespace QuickGraph.Algorithms.AssigmentProblem
         /// Returns iterations that can be used to visualise the algorithm
         /// </summary>
         /// <returns>List of iterations of algorithm</returns>
-        public List<HungarianIteration> GetIterations()
+        public List<HungarianIteration> GetIterations
         {
-            var list = new List<HungarianIteration>();
-            var step = Steps.Init;
+			get
+			{
+				var list = new List<HungarianIteration>();
+				var step = Steps.Init;
 
-            while (step != Steps.End)
-            {
-                step = DoStep();
-                list.Add(new HungarianIteration
-                {
-                    Matrix = (int[,])_costs.Clone(),
-                    Mask = (byte[,])_masks.Clone(),
-                    RowsCovered = (bool[])_rowsCovered.Clone(),
-                    ColsCovered = (bool[])_colsCovered.Clone(),
-                    Step = step
-                });
-            }
-            return list;
+				while(step != Steps.End) {
+					step = DoStep();
+					list.Add(new HungarianIteration {
+						Matrix = (int[,])_costs.Clone(),
+						Mask = (byte[,])_masks.Clone(),
+						RowsCovered = (bool[])_rowsCovered.Clone(),
+						ColsCovered = (bool[])_colsCovered.Clone(),
+						Step = step
+					});
+				}
+				return list;
+			}
         }
 
 

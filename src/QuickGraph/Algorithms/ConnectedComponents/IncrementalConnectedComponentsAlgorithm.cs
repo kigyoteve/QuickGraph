@@ -54,28 +54,30 @@ namespace QuickGraph.Algorithms.ConnectedComponents
         /// Value contains the vertex -> component index map.
         /// </summary>
         /// <returns></returns>
-        public KeyValuePair<int, IDictionary<TVertex, int>> GetComponents()
+        public KeyValuePair<int, IDictionary<TVertex, int>> GetComponents
         {
-            Contract.Ensures(
-                Contract.Result<KeyValuePair<int, IDictionary<TVertex, int>>>().Key == this.ComponentCount);
-            Contract.Ensures(
-                Contract.Result<KeyValuePair<int, IDictionary<TVertex, int>>>().Value.Count == this.VisitedGraph.VertexCount);
-            // TODO: more contracts
-            Contract.Assert(this.ds != null);
-            
-            var representatives = new Dictionary<TVertex, int>(this.ds.SetCount);
-            if (this.components == null)
-                this.components = new Dictionary<TVertex, int>(this.VisitedGraph.VertexCount);
-            foreach (var v in this.VisitedGraph.Vertices)
-            {
-                var representative = this.ds.FindSet(v);
-                int index;
-                if (!representatives.TryGetValue(representative, out index))
-                    representatives[representative] = index = representatives.Count;
-                components[v] = index;
-            }
+			get
+			{
+				Contract.Ensures(
+				Contract.Result<KeyValuePair<int, IDictionary<TVertex, int>>>().Key == this.ComponentCount);
+				Contract.Ensures(
+					Contract.Result<KeyValuePair<int, IDictionary<TVertex, int>>>().Value.Count == this.VisitedGraph.VertexCount);
+				// TODO: more contracts
+				Contract.Assert(this.ds != null);
 
-            return new KeyValuePair<int, IDictionary<TVertex, int>>(this.ds.SetCount, components);
+				var representatives = new Dictionary<TVertex, int>(this.ds.SetCount);
+				if(this.components == null)
+					this.components = new Dictionary<TVertex, int>(this.VisitedGraph.VertexCount);
+				foreach(var v in this.VisitedGraph.Vertices) {
+					var representative = this.ds.FindSet(v);
+					int index;
+					if(!representatives.TryGetValue(representative, out index))
+						representatives[representative] = index = representatives.Count;
+					components[v] = index;
+				}
+
+				return new KeyValuePair<int, IDictionary<TVertex, int>>(this.ds.SetCount, components);
+			}
         }
 
         void VisitedGraph_VertexAdded(TVertex v)
