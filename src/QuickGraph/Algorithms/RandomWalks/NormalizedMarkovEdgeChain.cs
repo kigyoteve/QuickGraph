@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 
 namespace QuickGraph.Algorithms.RandomWalks
@@ -13,7 +14,10 @@ namespace QuickGraph.Algorithms.RandomWalks
     {
         public override bool TryGetSuccessor(IImplicitGraph<TVertex,TEdge> g, TVertex u, out TEdge successor)
         {
-            int outDegree = g.OutDegree(u);
+			Contract.Requires(g != null);
+			Contract.Requires(u != null);
+
+			int outDegree = g.OutDegree(u);
             if (outDegree > 0)
             {
                 int index = this.Rand.Next(0, outDegree);

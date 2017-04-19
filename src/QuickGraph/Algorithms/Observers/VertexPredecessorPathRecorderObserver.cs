@@ -45,7 +45,9 @@ namespace QuickGraph.Algorithms.Observers
 
         public IDisposable Attach(IVertexPredecessorRecorderAlgorithm<TVertex, TEdge> algorithm)
         {
-            algorithm.TreeEdge += TreeEdge;
+			Contract.Requires(algorithm != null);
+
+			algorithm.TreeEdge += TreeEdge;
             algorithm.FinishVertex += FinishVertex;
             return new DisposableAction(
                 () =>

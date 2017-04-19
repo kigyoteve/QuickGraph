@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using QuickGraph.Algorithms.ConnectedComponents;
+using System.Diagnostics.Contracts;
 
 namespace QuickGraph.Algorithms
 {
@@ -12,7 +13,8 @@ namespace QuickGraph.Algorithms
 
         public IsEulerianGraphAlgorithm(UndirectedGraph<TVertex, UndirectedEdge<TVertex>> graph)
         {
-            var newGraph = new UndirectedGraph<TVertex, UndirectedEdge<TVertex>>(false, graph.EdgeEqualityComparer);
+			Contract.Requires(graph != null);
+			var newGraph = new UndirectedGraph<TVertex, UndirectedEdge<TVertex>>(false, graph.EdgeEqualityComparer);
             newGraph.AddVertexRange(graph.Vertices);
             newGraph.AddEdgeRange(graph.Edges);
             EdgePredicate<TVertex, UndirectedEdge<TVertex>> isLoop = e => e.Source.Equals(e.Target);

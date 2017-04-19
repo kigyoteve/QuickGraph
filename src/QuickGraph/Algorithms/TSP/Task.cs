@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -214,7 +215,9 @@ namespace QuickGraph.Algorithms.TSP
 
         public int CompareTo(TaskPriority other)
         {
-            var costCompare = _cost.CompareTo(other._cost);
+			Contract.Requires(other != null);
+
+			var costCompare = _cost.CompareTo(other._cost);
             if (costCompare == 0)
             {
                 return -_pathSize.CompareTo(other._pathSize);
@@ -223,10 +226,16 @@ namespace QuickGraph.Algorithms.TSP
         }
 
 		public static bool operator <(TaskPriority left, TaskPriority right) {
+			Contract.Requires(left != null);
+			Contract.Requires(right != null);
+
 			return left.CompareTo(right) < 0;
 		}
 
 		public static bool operator >(TaskPriority left, TaskPriority right) {
+			Contract.Requires(left != null);
+			Contract.Requires(right != null);
+
 			return left.CompareTo(right) > 0;
 		}
 	}

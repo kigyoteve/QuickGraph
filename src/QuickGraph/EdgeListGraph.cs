@@ -84,7 +84,9 @@ namespace QuickGraph
 
         public int AddVerticesAndEdgeRange(IEnumerable<TEdge> edges)
         {
-            int count = 0;
+			Contract.Requires(edges != null);
+
+			int count = 0;
             foreach (var edge in edges)
                 if (this.AddVerticesAndEdge(edge))
                     count++;
@@ -102,7 +104,9 @@ namespace QuickGraph
 
         public int AddEdgeRange(IEnumerable<TEdge> edges)
         {
-            int count = 0;
+			Contract.Requires(edges != null);
+
+			int count = 0;
             foreach (var edge in edges)
                 if (this.AddEdge(edge))
                     count++;
@@ -138,7 +142,9 @@ namespace QuickGraph
 
         public int RemoveEdgeIf(EdgePredicate<TVertex, TEdge> predicate)
         {
-            List<TEdge> edgesToRemove = new List<TEdge>();
+			Contract.Requires(predicate != null);
+
+			List<TEdge> edgesToRemove = new List<TEdge>();
             foreach (var edge in this.Edges)
                 if (predicate(edge))
                     edgesToRemove.Add(edge);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 
 namespace QuickGraph
 {
@@ -27,7 +28,9 @@ namespace QuickGraph
         /// <returns>Whether the two arrays are equal</returns>
         public static bool Equals1<T>(this IList<T> lhs, IList<T> rhs, IEqualityComparer<T> elementEquality)
         {
-            if (ReferenceEquals(lhs, null))
+			Contract.Requires(elementEquality != null);
+
+			if (ReferenceEquals(lhs, null))
             {
                 return ReferenceEquals(rhs, null);
             }
@@ -115,7 +118,9 @@ namespace QuickGraph
         /// <returns>Whether the two arrays are equal</returns>
         public static bool Equals1<T>(this T[] lhs, T[] rhs, IEqualityComparer<T> elementEquality)
         {
-            if (ReferenceEquals(lhs, null))
+			Contract.Requires(elementEquality != null);
+
+			if (ReferenceEquals(lhs, null))
             {
                 return ReferenceEquals(rhs, null);
             }
@@ -276,7 +281,9 @@ namespace QuickGraph
         /// <returns>Whether the two dictionaries are equal.</returns>
         public static bool Equals1<TKey, TValue>(this IDictionary<TKey, TValue> lhs, IDictionary<TKey, TValue> rhs, IEqualityComparer<TValue> valueEquality)
         {
-            if (ReferenceEquals(lhs, null))
+			Contract.Requires(valueEquality != null);
+
+			if (ReferenceEquals(lhs, null))
             {
                 return ReferenceEquals(rhs, null);
             }
@@ -363,7 +370,9 @@ namespace QuickGraph
         /// <returns></returns>
         public int GetHashCode(T[] x)
         {
-            var hashcode = 0;
+			Contract.Requires(x != null);
+
+			var hashcode = 0;
             foreach (var e in x)
             {
                 hashcode ^= ElementEqualityComparer.GetHashCode(e);

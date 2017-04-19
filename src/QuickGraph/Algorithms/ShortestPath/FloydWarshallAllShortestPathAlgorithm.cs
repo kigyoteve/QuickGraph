@@ -269,7 +269,9 @@ namespace QuickGraph.Algorithms.ShortestPath
         [Conditional("DEBUG")]
         public void Dump(TextWriter writer)
         {
-            writer.WriteLine("data:");
+			Contract.Requires(writer != null);
+
+			writer.WriteLine("data:");
             foreach (var kv in this.data)
                 writer.WriteLine("{0}->{1}: {2}", 
                     kv.Key.Source, 

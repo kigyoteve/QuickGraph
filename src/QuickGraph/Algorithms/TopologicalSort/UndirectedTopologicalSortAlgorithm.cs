@@ -82,7 +82,9 @@ namespace QuickGraph.Algorithms.TopologicalSort
 
         public void Compute(IList<TVertex> vertices)
         {
-            this.vertices = vertices;
+			Contract.Requires(vertices != null);
+
+			this.vertices = vertices;
             this.vertices.Clear();
             this.Compute();
         }

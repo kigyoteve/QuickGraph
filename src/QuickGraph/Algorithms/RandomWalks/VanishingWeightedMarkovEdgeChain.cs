@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
+
 namespace QuickGraph.Algorithms.RandomWalks
 {
 #if !SILVERLIGHT
@@ -35,7 +37,10 @@ namespace QuickGraph.Algorithms.RandomWalks
 
         public override bool TryGetSuccessor(IImplicitGraph<TVertex,TEdge> g, TVertex u, out TEdge successor)
         {
-            if (!g.IsOutEdgesEmpty(u))
+			Contract.Requires(g != null);
+			Contract.Requires(u != null);
+
+			if (!g.IsOutEdgesEmpty(u))
             {
                 // get outweight
                 double outWeight = GetOutWeight(g, u);

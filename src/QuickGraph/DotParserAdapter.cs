@@ -4,9 +4,10 @@ using System.Linq;
 
 namespace QuickGraph
 {
-    using Attributes = IDictionary<string, string>;
+	using System.Diagnostics.Contracts;
+	using Attributes = IDictionary<string, string>;
 
-    public sealed class DotParserAdapter
+	public sealed class DotParserAdapter
     {
 		private DotParserAdapter() { }
         /// <param name="dotSource"></param>
@@ -45,13 +46,16 @@ namespace QuickGraph
 
 			public static int? GetWeightNullable(Attributes attrs)
             {
-                int weight;
+				Contract.Requires(attrs != null);
+				int weight;
                 return int.TryParse(attrs["weight"], out weight) ? (int?) weight : null;
             }
 
             public static int GetWeight(Attributes attrs, int defaultValue)
             {
-                if (!attrs.ContainsKey("weight")) return defaultValue;
+				Contract.Requires(attrs != null);
+
+				if (!attrs.ContainsKey("weight")) return defaultValue;
 
                 int weight;
                 return int.TryParse(attrs["weight"], out weight) ? weight : defaultValue;

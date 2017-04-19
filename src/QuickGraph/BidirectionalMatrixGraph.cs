@@ -283,7 +283,8 @@ namespace QuickGraph
 
         public int RemoveInEdgeIf(int v, EdgePredicate<int, TEdge> edgePredicate)
         {
-            Contract.Requires(0 <= v && v < this.VertexCount);
+			Contract.Requires(edgePredicate != null);
+			Contract.Requires(0 <= v && v < this.VertexCount);
 
             int count = 0;
             for (int i = 0; i < this.VertexCount; ++i)
@@ -324,7 +325,8 @@ namespace QuickGraph
 
         public int RemoveOutEdgeIf(int v, EdgePredicate<int, TEdge> predicate)
         {
-            Contract.Requires(0 <= v && v < this.VertexCount);
+			Contract.Requires(predicate != null);
+			Contract.Requires(0 <= v && v < this.VertexCount);
 
             int count = 0;
             for (int j = 0; j < this.VertexCount; ++j)
@@ -376,7 +378,9 @@ namespace QuickGraph
 
         public int AddEdgeRange(IEnumerable<TEdge> edges)
         {
-            int count = 0;
+			Contract.Requires(edges != null);
+
+			int count = 0;
             foreach (var edge in edges)
                 if (this.AddEdge(edge))
                     count++;
