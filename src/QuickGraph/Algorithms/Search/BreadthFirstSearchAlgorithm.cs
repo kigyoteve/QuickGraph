@@ -25,7 +25,6 @@ namespace QuickGraph.Algorithms.Search
     {
         private IDictionary<TVertex, GraphColor> vertexColors;
         private IQueue<TVertex> vertexQueue;
-        private readonly Func<IEnumerable<TEdge>, IEnumerable<TEdge>> outEdgeEnumerator;
 
         public BreadthFirstSearchAlgorithm(IVertexListGraph<TVertex,TEdge> g)
             : this(g, new QuickGraph.Collections.Queue<TVertex>(), new Dictionary<TVertex, GraphColor>())
@@ -45,30 +44,13 @@ namespace QuickGraph.Algorithms.Search
             IQueue<TVertex> vertexQueue,
             IDictionary<TVertex, GraphColor> vertexColors
             )
-            :this(host, visitedGraph, vertexQueue, vertexColors, e => e)
-        {}
-
-        public BreadthFirstSearchAlgorithm(
-            IAlgorithmComponent host,
-            IVertexListGraph<TVertex, TEdge> visitedGraph,
-            IQueue<TVertex> vertexQueue,
-            IDictionary<TVertex, GraphColor> vertexColors,
-            Func<IEnumerable<TEdge>, IEnumerable<TEdge>> outEdgeEnumerator
-            )
             : base(host, visitedGraph)
         {
             Contract.Requires(vertexQueue != null);
             Contract.Requires(vertexColors != null);
-            Contract.Requires(outEdgeEnumerator != null);
 
             this.vertexColors = vertexColors;
             this.vertexQueue = vertexQueue;
-            this.outEdgeEnumerator = outEdgeEnumerator;
-        }
-
-        public Func<IEnumerable<TEdge>, IEnumerable<TEdge>> OutEdgeEnumerator
-        {
-            get { return this.outEdgeEnumerator; }
         }
 
         public IDictionary<TVertex,GraphColor> VertexColors
@@ -217,7 +199,6 @@ namespace QuickGraph.Algorithms.Search
         private void FlushVisitQueue()
         {
             var cancelManager = this.Services.CancelManager;
-            var oee = this.OutEdgeEnumerator;
 
             while (this.vertexQueue.Count > 0)
             {
@@ -225,7 +206,7 @@ namespace QuickGraph.Algorithms.Search
 
                 var u = this.vertexQueue.Dequeue();
                 this.OnExamineVertex(u);
-                foreach (var e in oee(this.VisitedGraph.OutEdges(u)))
+                foreach (var e in this.VisitedGraph.OutEdges(u))
                 {
                     TVertex v = e.Target;
                     this.OnExamineEdge(e);
