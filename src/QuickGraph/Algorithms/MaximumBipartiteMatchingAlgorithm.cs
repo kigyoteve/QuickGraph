@@ -122,9 +122,11 @@ namespace QuickGraph.Algorithms
                     reverser.RemoveReversedEdges();
                     reverser = null;
                 }
-                if (augmentor != null && augmentor.Augmented)
+                if (augmentor != null)
                 {
-                    augmentor.Rollback();
+                    if (augmentor.Augmented)
+                        augmentor.Rollback();
+                    augmentor.Dispose();
                     augmentor = null;
                 }
             }

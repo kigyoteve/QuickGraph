@@ -35,6 +35,7 @@ namespace QuickGraph.Serialization
             SerializeToGraphML<TVertex, TEdge, TGraph>(graph, writer, vertexIdentities, edgeIdentities);
             writer.Flush();
             writer.Close();
+            writer.Dispose();
         }
 
         public static void SerializeToGraphML<TVertex, TEdge, TGraph>(
@@ -55,6 +56,7 @@ namespace QuickGraph.Serialization
             SerializeToGraphML<TVertex, TEdge, TGraph>(graph, writer);
             writer.Flush();
             writer.Close();
+            writer.Dispose();
         }
 
 #endif
@@ -119,6 +121,7 @@ this
 
             var reader = new StreamReader(fileName);
             DeserializeFromGraphML<TVertex, TEdge,TGraph>(graph, reader, vertexFactory, edgeFactory);
+            reader.Dispose();
         }
 
         public static void DeserializeFromGraphML<TVertex, TEdge,TGraph>(
