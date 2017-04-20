@@ -1,3 +1,13 @@
+AppVeyor status:
+
+Branch | Status |
+--- | ---
+Master | [![Build status](https://ci.appveyor.com/api/projects/status/57dj27apnbybaweu/branch/master?svg=true)](https://ci.appveyor.com/project/ferencmarkizay/quickgraph/branch/master) |
+iet-hazi | [![Build status](https://ci.appveyor.com/api/projects/status/57dj27apnbybaweu/branch/iet-hazi?svg=true)](https://ci.appveyor.com/project/ferencmarkizay/quickgraph/branch/iet-hazi) |
+
+
+# Original Readme:
+---
 # QuickGraph [![NuGet Status](http://img.shields.io/nuget/v/YC.QuickGraph.svg?style=flat)](https://www.nuget.org/packages/YC.QuickGraph/)
 
 QuickGraph provides generic directed/undirected graph datastructures and algorithms for .NET.
