@@ -75,7 +75,6 @@ namespace QuickGraph.Algorithms
 
         protected override void InternalCompute()
         {
-            var cancelManager = this.Services.CancelManager;
 
             TVertex root;
             if (!this.TryGetRootVertex(out root))

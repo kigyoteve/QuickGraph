@@ -43,7 +43,7 @@ namespace QuickGraph.Algorithms
                 foreach (var indirectAncestor in thisVertexAncestors)
                 {
                     TEdge foundIndirectEdge;
-                    var exists = _graph.TryGetEdge(indirectAncestor, vertexId, out foundIndirectEdge);
+                    _graph.TryGetEdge(indirectAncestor, vertexId, out foundIndirectEdge);
                     action(_graph, indirectAncestor, vertexId, foundIndirectEdge);
                 }
 
