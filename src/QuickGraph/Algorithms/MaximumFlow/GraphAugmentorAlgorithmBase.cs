@@ -125,6 +125,7 @@ namespace QuickGraph.Algorithms.MaximumFlow
         public void Dispose()
         {
             this.Rollback();
+            GC.SuppressFinalize(this);
         }
 
         protected abstract void AugmentGraph();

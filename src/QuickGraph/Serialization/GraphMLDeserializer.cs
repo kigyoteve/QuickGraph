@@ -168,13 +168,6 @@ namespace QuickGraph.Serialization
 
             static class Metadata
             {
-                public static readonly MethodInfo ReadToFollowingMethod =
-                    typeof(XmlReader).GetMethod(
-                        "ReadToFollowing",
-                        BindingFlags.Instance | BindingFlags.Public,
-                        null,
-                        new Type[] { typeof(string), typeof(string) },
-                        null);
                 public static readonly MethodInfo GetAttributeMethod =
                     typeof(XmlReader).GetMethod(
                         "GetAttribute",
@@ -182,10 +175,6 @@ namespace QuickGraph.Serialization
                         null,
                         new Type[] { typeof(string) },
                         null);
-                public static readonly PropertyInfo NameProperty =
-                    typeof(XmlReader).GetProperty("Name");
-                public static readonly PropertyInfo NamespaceUriProperty =
-                    typeof(XmlReader).GetProperty("NamespaceUri");
                 public static readonly MethodInfo StringEqualsMethod =
                     typeof(string).GetMethod(
                         "op_Equality",

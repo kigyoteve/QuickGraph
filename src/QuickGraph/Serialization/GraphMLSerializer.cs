@@ -161,33 +161,12 @@ namespace QuickGraph.Serialization
                         null,
                         new Type[] { },
                         null);
-                public static readonly MethodInfo WriteStringMethod =
-                    typeof(XmlWriter).GetMethod(
-                        "WriteString",
-                        BindingFlags.Instance | BindingFlags.Public,
-                        null,
-                        new Type[] { typeof(string) },
-                        null);
                 public static readonly MethodInfo WriteAttributeStringMethod =
                     typeof(XmlWriter).GetMethod(
                         "WriteAttributeString",
                         BindingFlags.Instance | BindingFlags.Public,
                         null,
                         new Type[] { typeof(string), typeof(string) },
-                        null);
-                public static readonly MethodInfo WriteStartAttributeMethod =
-                    typeof(XmlWriter).GetMethod(
-                        "WriteStartAttribute",
-                        BindingFlags.Instance | BindingFlags.Public,
-                        null,
-                        new Type[] { typeof(string) },
-                        null);
-                public static readonly MethodInfo WriteEndAttributeMethod =
-                    typeof(XmlWriter).GetMethod(
-                        "WriteEndAttribute",
-                        BindingFlags.Instance | BindingFlags.Public,
-                        null,
-                        new Type[] { },
                         null);
                 private static readonly Dictionary<Type, MethodInfo> WriteValueMethods = new Dictionary<Type, MethodInfo>();
 
