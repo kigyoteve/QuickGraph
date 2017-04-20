@@ -108,6 +108,15 @@ namespace QuickGraph
                 this.Equals((SEquatableUndirectedEdge<TVertex>)obj);
         }
 
+        public static bool operator== (SEquatableUndirectedEdge<TVertex> obj1, SEquatableUndirectedEdge<TVertex> obj2)
+        {
+            return obj1.Equals(obj2);
+        }
+        public static bool operator!= (SEquatableUndirectedEdge<TVertex> obj1, SEquatableUndirectedEdge<TVertex> obj2)
+        {
+            return !obj1.Equals(obj2);
+        }
+
         /// <summary>
         /// Returns the hash code for this instance.
         /// </summary>

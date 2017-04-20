@@ -52,6 +52,15 @@ namespace QuickGraph
             return Equals((SReversedEdge<TVertex, TEdge>)obj);
         }
 
+        public static bool operator== (SReversedEdge<TVertex, TEdge> obj1, SReversedEdge<TVertex, TEdge> obj2)
+        {
+            return obj1.Equals(obj2);
+        }
+        public static bool operator!= (SReversedEdge<TVertex, TEdge> obj1, SReversedEdge<TVertex, TEdge> obj2)
+        {
+            return !obj1.Equals(obj2);
+        }
+
         [Pure]
         public override int GetHashCode()
         {

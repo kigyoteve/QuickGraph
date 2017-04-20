@@ -115,6 +115,15 @@ namespace QuickGraph
                 this.Equals((STaggedEquatableEdge<TVertex, TTag>)obj);
         }
 
+        public static bool operator ==(STaggedEquatableEdge<TVertex, TTag> obj1, STaggedEquatableEdge<TVertex, TTag> obj2)
+        {
+            return obj1.Equals(obj2);
+        }
+        public static bool operator !=(STaggedEquatableEdge<TVertex, TTag> obj1, STaggedEquatableEdge<TVertex, TTag> obj2)
+        {
+            return !obj1.Equals(obj2);
+        }
+
         /// <summary>
         /// Returns the hash code for this instance.
         /// </summary>
