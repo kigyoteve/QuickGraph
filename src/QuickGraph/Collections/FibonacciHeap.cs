@@ -29,32 +29,12 @@ namespace QuickGraph.Collections
         /// <typeparam name="T">Type contained in List</typeparam>
         /// <param name="collection">List to enumerate over</param>
         /// <param name="action">Lambda Function to be performed on all elements in List</param>
-        internal static void ForEach<T>(IList<T> collection, Action<T> action)
-        {
-            for (int i = 0; i < collection.Count; i++)
-            {
-                action(collection[i]);
-            }
-        }
-        /// <summary>
-        /// Performs an action on each item in a list, used to shortcut a "foreach" loop
-        /// </summary>
-        /// <typeparam name="T">Type contained in List</typeparam>
-        /// <param name="collection">List to enumerate over</param>
-        /// <param name="action">Lambda Function to be performed on all elements in List</param>
         public static void ForEach<T>(IEnumerable<T> collection, Action<T> action)
         {
             foreach (T item in collection)
             {
                 action(item);
             }
-        }
-
-        public static Stack<T> ToStack<T>(IEnumerable<T> collection)
-        {
-            Stack<T> newStack = new Stack<T>();
-            ForEach(collection, x => newStack.Push(x));
-            return newStack;
         }
     }
 
