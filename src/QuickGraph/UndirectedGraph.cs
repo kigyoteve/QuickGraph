@@ -448,7 +448,6 @@ namespace QuickGraph
 
         public bool ContainsEdge(TEdge edge)
         {
-            var eqc = this.EdgeEqualityComparer;
             foreach (var e in this.AdjacentEdges(edge.Source))
                 if (e.Equals(edge))
                     return true;

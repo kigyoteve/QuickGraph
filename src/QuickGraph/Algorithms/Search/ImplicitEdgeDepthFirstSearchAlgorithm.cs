@@ -249,7 +249,6 @@ namespace QuickGraph.Algorithms.Search
                 }
                 else
                 {
-                    GraphColor c = this.EdgeColors[e];
                     if (EdgeColors[e] == GraphColor.Gray)
                         OnBackEdge(e);
                     else
