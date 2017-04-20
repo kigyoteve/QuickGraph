@@ -7,9 +7,8 @@ namespace QuickGraph
 	using System.Diagnostics.Contracts;
 	using Attributes = IDictionary<string, string>;
 
-	public sealed class DotParserAdapter
+	public static class DotParserAdapter
     {
-		private DotParserAdapter() { }
         /// <param name="dotSource"></param>
         /// <param name="createGraph">Graph constructor function</param>
         /// <param name="vertexFunc">Packing function (see VertexFactory class)</param>
