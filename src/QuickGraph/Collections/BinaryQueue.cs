@@ -12,6 +12,7 @@ namespace QuickGraph.Collections
         IPriorityQueue<TVertex>
     {
         private readonly Func<TVertex, TDistance> distances;
+        [NonSerialized]
         private readonly BinaryHeap<TDistance, TVertex> heap;
 
         public BinaryQueue(

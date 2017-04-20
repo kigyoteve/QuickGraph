@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 
 namespace QuickGraph
 {
+    [Serializable]
     public class NoPathFoundException : QuickGraphException
     {
 

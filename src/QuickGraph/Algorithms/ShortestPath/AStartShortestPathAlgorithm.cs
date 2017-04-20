@@ -28,6 +28,7 @@ namespace QuickGraph.Algorithms.ShortestPath
         , IDistanceRecorderAlgorithm<TVertex, TEdge>
         where TEdge : IEdge<TVertex>
     {
+        [NonSerialized]
         private FibonacciQueue<TVertex, double> vertexQueue;
         private Dictionary<TVertex, double> costs;
         private readonly Func<TVertex, double> costHeuristic;
