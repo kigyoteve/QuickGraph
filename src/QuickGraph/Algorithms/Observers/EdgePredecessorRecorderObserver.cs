@@ -56,7 +56,8 @@ namespace QuickGraph.Algorithms.Observers
 
         public IDisposable Attach(IEdgePredecessorRecorderAlgorithm<TVertex, TEdge> algorithm)
         {
-            algorithm.DiscoverTreeEdge += this.DiscoverTreeEdge;
+			Contract.Requires(algorithm != null);
+			algorithm.DiscoverTreeEdge += this.DiscoverTreeEdge;
             algorithm.FinishEdge += this.FinishEdge;
 
             return new DisposableAction(
@@ -94,7 +95,10 @@ namespace QuickGraph.Algorithms.Observers
 
         public ICollection<TEdge> MergedPath(TEdge se, IDictionary<TEdge,GraphColor> colors)
         {
-            List<TEdge> path = new List<TEdge>();
+			Contract.Requires(se != null);
+			Contract.Requires(colors != null);
+
+			List<TEdge> path = new List<TEdge>();
 
             TEdge ec = se;
             GraphColor c = colors[ec];

@@ -4,10 +4,12 @@ using System.Linq;
 
 namespace QuickGraph
 {
-    using Attributes = IDictionary<string, string>;
+	using System.Diagnostics.Contracts;
+	using Attributes = IDictionary<string, string>;
 
-    public class DotParserAdapter
+	public sealed class DotParserAdapter
     {
+		private DotParserAdapter() { }
         /// <param name="dotSource"></param>
         /// <param name="createGraph">Graph constructor function</param>
         /// <param name="vertexFunc">Packing function (see VertexFactory class)</param>
@@ -38,26 +40,34 @@ namespace QuickGraph
             return graph;
         }
 
-        public class Common
+		public sealed class Common
         {
-            public static int? GetWeightNullable(Attributes attrs)
+			private Common() { }
+
+			public static int? GetWeightNullable(Attributes attrs)
             {
-                int weight;
+				Contract.Requires(attrs != null);
+				int weight;
                 return int.TryParse(attrs["weight"], out weight) ? (int?) weight : null;
             }
 
             public static int GetWeight(Attributes attrs, int defaultValue)
             {
-                if (!attrs.ContainsKey("weight")) return defaultValue;
+				Contract.Requires(attrs != null);
+
+				if (!attrs.ContainsKey("weight")) return defaultValue;
 
                 int weight;
                 return int.TryParse(attrs["weight"], out weight) ? weight : defaultValue;
             }
         }
 
-        public class VertexFactory
+        public sealed class VertexFactory
         {
-            public static Func<string, Attributes, string>
+
+			private VertexFactory() { }
+
+			public static Func<string, Attributes, string>
                 Name = (v, attrs) => v;
 
 
@@ -80,9 +90,12 @@ namespace QuickGraph
         }
 
 
-        public class EdgeFactory<TVertex>
+        public sealed class EdgeFactory<TVertex>
         {
-            public static Func<TVertex, TVertex, Attributes, SEdge<TVertex>>
+
+			private EdgeFactory() { }
+
+			public static Func<TVertex, TVertex, Attributes, SEdge<TVertex>>
                 VerticesOnly = (v1, v2, attrs) => new SEdge<TVertex>(v1, v2);
 
 

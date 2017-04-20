@@ -33,7 +33,7 @@ namespace QuickGraph.Algorithms
         /// <returns></returns>
         public static Func<TKey, TValue> GetIndexer<TKey, TValue>(Dictionary<TKey, TValue> dictionary)
         {
-            Contract.Requires(dictionary != null);
+			Contract.Requires(dictionary != null);
             Contract.Ensures(Contract.Result<Func<TKey, TValue>>() != null);
 
 #if!SILVERLIGHT

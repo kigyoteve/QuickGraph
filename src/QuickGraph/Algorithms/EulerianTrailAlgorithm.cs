@@ -251,8 +251,10 @@ namespace QuickGraph.Algorithms
         /// <returns></returns>
         public List<TEdge> AddTemporaryEdges(EdgeFactory<TVertex,TEdge> edgeFactory)
         {
-            // first gather odd edges.
-            var oddVertices = AlgorithmExtensions.OddVertices(this.VisitedGraph);
+			Contract.Requires(edgeFactory != null);
+
+			// first gather odd edges.
+			var oddVertices = AlgorithmExtensions.OddVertices(this.VisitedGraph);
 
             // check that there are an even number of them
             if (oddVertices.Count % 2 != 0)

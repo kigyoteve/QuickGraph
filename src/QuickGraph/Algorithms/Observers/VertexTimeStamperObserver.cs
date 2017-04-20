@@ -59,7 +59,9 @@ namespace QuickGraph.Algorithms.Observers
 
         public IDisposable Attach(IVertexTimeStamperAlgorithm<TVertex, TEdge> algorithm)
         {
-            algorithm.DiscoverVertex += DiscoverVertex;
+			Contract.Requires(algorithm != null);
+
+			algorithm.DiscoverVertex += DiscoverVertex;
             if (this._finishTimes != null)
                 algorithm.FinishVertex += FinishVertex;
 

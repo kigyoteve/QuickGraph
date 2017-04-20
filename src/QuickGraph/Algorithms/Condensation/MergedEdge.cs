@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using QuickGraph.Collections;
+using System.Diagnostics.Contracts;
 
 namespace QuickGraph.Algorithms.Condensation
 {
@@ -26,7 +27,9 @@ namespace QuickGraph.Algorithms.Condensation
             MergedEdge<TVertex, TEdge> outEdge
             )
         {
-            MergedEdge<TVertex, TEdge> newEdge = new MergedEdge<TVertex, TEdge>(
+			Contract.Requires(inEdge != null);
+			Contract.Requires(outEdge != null);
+			MergedEdge<TVertex, TEdge> newEdge = new MergedEdge<TVertex, TEdge>(
                 inEdge.Source, outEdge.Target);
             newEdge.edges = new List<TEdge>(inEdge.Edges.Count + outEdge.Edges.Count);
             newEdge.edges.AddRange(inEdge.Edges);

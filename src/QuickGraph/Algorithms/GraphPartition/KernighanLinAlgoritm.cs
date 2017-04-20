@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using QuickGraph.Algorithms;
+using System.Diagnostics.Contracts;
 
 namespace QuickGraph.Algorithms.KernighanLinAlgoritm
 {
@@ -18,7 +19,8 @@ namespace QuickGraph.Algorithms.KernighanLinAlgoritm
 
         public KernighanLinAlgoritm(UndirectedGraph<TVertex, TEdge> g, int itersNum) 
         {
-            this.g = g;
+			Contract.Requires(g != null);
+			this.g = g;
             this.itersNum = itersNum;
             this.partitionSize = g.Vertices.Count() / 2;
         }

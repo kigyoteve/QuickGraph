@@ -27,13 +27,18 @@ namespace QuickGraph.Algorithms.RandomWalks
 
         protected double GetOutWeight(IImplicitGraph<TVertex, TEdge> g, TVertex u)
         {
-            var edges = g.OutEdges(u);
+			Contract.Requires(g != null);
+			Contract.Requires(u != null);
+
+			var edges = g.OutEdges(u);
             return GetWeights(edges);
         }
 
         protected double GetWeights(IEnumerable<TEdge> edges)
         {
-            double outWeight = 0;
+			Contract.Requires(edges != null);
+
+			double outWeight = 0;
             foreach (var e in edges)
             {
                 outWeight += this.weights[e];

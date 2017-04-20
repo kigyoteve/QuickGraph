@@ -214,7 +214,8 @@ namespace QuickGraph.Algorithms.Exploration
 
             public bool Test(CloneableVertexGraphExplorerAlgorithm<TVertex, TEdge> t)
             {
-                if (t.VisitedGraph.VertexCount > this.MaxVertexCount)
+				Contract.Requires(t != null);
+				if (t.VisitedGraph.VertexCount > this.MaxVertexCount)
                     return false;
                 if (t.VisitedGraph.EdgeCount > this.MaxEdgeCount)
                     return false;

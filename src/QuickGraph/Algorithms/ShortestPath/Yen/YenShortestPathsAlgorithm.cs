@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using QuickGraph.Algorithms.Observers;
+using System.Diagnostics.Contracts;
 
 namespace QuickGraph.Algorithms.ShortestPath.Yen
 {
@@ -37,7 +38,13 @@ namespace QuickGraph.Algorithms.ShortestPath.Yen
       Func<IEnumerable<IEnumerable<TaggedEquatableEdge<TVertex, double>>>,
         IEnumerable<IEnumerable<TaggedEquatableEdge<TVertex, double>>>> filter = null)
     {
-      _sourceVertix = s;
+	Contract.Requires(graph != null);
+	Contract.Requires(s != null);
+	Contract.Requires(t != null);
+
+
+
+			_sourceVertix = s;
       _targetVertix = t;
       _k = k;
       _graph = graph.Clone();
