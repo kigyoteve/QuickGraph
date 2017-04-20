@@ -225,7 +225,29 @@ namespace QuickGraph.Algorithms.TSP
             return costCompare;
         }
 
-		public static bool operator <(TaskPriority left, TaskPriority right) {
+        public override bool Equals(object obj)
+        {
+            if (obj is TaskPriority)
+                return this.CompareTo(obj as TaskPriority) == 0;
+            else return false;
+        }
+
+        public static bool operator== (TaskPriority obj1, TaskPriority obj2)
+        {
+            return obj1.Equals(obj2);
+        }
+
+        public static bool operator !=(TaskPriority obj1, TaskPriority obj2)
+        {
+            return !obj1.Equals(obj2);
+        }
+
+        public override int GetHashCode()
+        {
+            return (int) _cost * 1000 + _pathSize;
+        }
+
+        public static bool operator <(TaskPriority left, TaskPriority right) {
 			Contract.Requires(left != null);
 			Contract.Requires(right != null);
 
