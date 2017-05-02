@@ -5,6 +5,7 @@ install:
 before_build:
   - cmd: msiexec.exe /i "lib\Pex\pex.academic.x86.msi" /quiet /norestart
   - cmd: msiexec.exe /i "lib\DotNet.CodeContracts\Contracts.devlab9ts.msi" /quiet /norestart
+  - nuget restore
 build_script:
   - cmd: build.cmd
 test: off
