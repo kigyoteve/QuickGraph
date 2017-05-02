@@ -10,10 +10,10 @@ build_script:
   - cmd: build.cmd
 test: off
 test_script:
-  - .\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\MSTest.exe" -targetargs:"/noresults /noisolation /testcontainer:"".\tests\QuickGraph.Tests\bin\x86\Debug\YC.QuickGraph.Tests.dll" -filter:"+[*]*  -[*]*.Properties.*" -excludebyattribute:*.ExcludeFromCodeCoverage* -hideskipped:All -output:.\MyProject_coverage.xml
+  - .\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\MSTest.exe" -targetargs:"/noresults /noisolation /testcontainer:""C:\projects\quickgraph\tests\QuickGraph.Tests\bin\Release\YC.QuickGraph.Tests.dll" -filter:"+[*]*  -[*]*.Properties.*" -excludebyattribute:*.ExcludeFromCodeCoverage* -hideskipped:All -output:.\MyProject_coverage.xml
   - "SET PATH=C:\\Python34;C:\\Python34\\Scripts;%PATH%"
   - pip install codecov
-  - codecov -f "StyleCopAnalyzers_coverage.xml"
+  - codecov -f "MyProject_coverage.xml"
 version: 0.0.1.{build}
 artifacts:
   - path: bin
