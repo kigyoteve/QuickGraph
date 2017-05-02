@@ -274,3 +274,4 @@ User_*/Out/*
 tests/QuickGraph.FST.Tests/DOTfst/*
 tests/QuickGraph.FSA.Tests/DOTfsa/*
 *.orig
+*.config
