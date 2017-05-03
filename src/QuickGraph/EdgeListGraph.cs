@@ -222,8 +222,10 @@ namespace QuickGraph
             var vertices = new Dictionary<TVertex, int>(this.EdgeCount * 2);
             foreach (var e in this.Edges)
             {
-                vertices[e.Source]++;
-                vertices[e.Target]++;
+                if (!vertices.ContainsKey(e.Source)) vertices[e.Source] = 1;
+                else vertices[e.Source]++;
+                if (!vertices.ContainsKey(e.Target)) vertices[e.Target] = 1;
+                else vertices[e.Target]++;
             }
             return vertices;
         }
