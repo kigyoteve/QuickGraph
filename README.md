@@ -1,9 +1,9 @@
 AppVeyor status:
 
-Branch | Status |
---- | ---
-Master | [![Build status](https://ci.appveyor.com/api/projects/status/57dj27apnbybaweu/branch/master?svg=true)](https://ci.appveyor.com/project/ferencmarkizay/quickgraph/branch/master) |
-iet-hazi | [![Build status](https://ci.appveyor.com/api/projects/status/57dj27apnbybaweu/branch/iet-hazi?svg=true)](https://ci.appveyor.com/project/ferencmarkizay/quickgraph/branch/iet-hazi) |
+Branch | Status | Coverage |
+--- | --- | ---
+Master | [![Build status](https://ci.appveyor.com/api/projects/status/57dj27apnbybaweu/branch/master?svg=true)](https://ci.appveyor.com/project/ferencmarkizay/quickgraph/branch/master) | [![codecov](https://codecov.io/gh/kigyoteve/QuickGraph/branch/master/graph/badge.svg)](https://codecov.io/gh/kigyoteve/QuickGraph) |
+iet-hazi | [![Build status](https://ci.appveyor.com/api/projects/status/57dj27apnbybaweu/branch/iet-hazi?svg=true)](https://ci.appveyor.com/project/ferencmarkizay/quickgraph/branch/iet-hazi) | [![codecov](https://codecov.io/gh/kigyoteve/QuickGraph/branch/iet-hazi/graph/badge.svg)](https://codecov.io/gh/kigyoteve/QuickGraph/branch/iet-hazi) |
 
 
 # Original Readme:

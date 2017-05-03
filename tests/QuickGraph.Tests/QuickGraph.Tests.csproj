@@ -492,6 +492,7 @@
     <Compile Include="EdgeTVertexTest.VertexTypeGet.g.cs">
       <DependentUpon>EdgeTVertexTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="EquateGraphsTest.cs" />
     <Compile Include="Factories\AdjacencyGraphFactory.cs" />
     <Compile Include="Factories\ArrayAdjacencyGraphFactory.cs" />
     <Compile Include="Factories\EdgeFactory.cs" />
