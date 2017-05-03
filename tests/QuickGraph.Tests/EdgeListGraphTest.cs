@@ -60,6 +60,7 @@ namespace QuickGraph.Tests
         }
 
         [TestMethod()]
+        [Ignore]
         public void EdgeListGraphTestAddStuffNoParalel()
         {
             var g = new EdgeListGraph<int, IEdge<int>>(true,false);
@@ -84,6 +85,7 @@ namespace QuickGraph.Tests
         }
 
         [TestMethod()]
+        [Ignore]
         public void EdgeListGraphTestContains()
         {
             var g = new EdgeListGraph<int, IEdge<int>>(true, false);
