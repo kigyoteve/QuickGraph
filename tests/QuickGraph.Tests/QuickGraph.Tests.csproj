@@ -530,6 +530,7 @@
     <Compile Include="Serialization\Repro13428.cs" />
     <Compile Include="Serialization\SystemSerializationTest.cs" />
     <Compile Include="Serialization\XmlSerializationTest.cs" />
+    <Compile Include="SReversedEdgeTest.cs" />
     <Compile Include="STaggedEdgeTest.cs" />
     <Compile Include="STaggedEquatableEdgeTest.cs" />
     <Compile Include="STaggedUndirectedEdgeTest.cs" />
