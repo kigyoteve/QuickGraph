@@ -70,5 +70,41 @@ namespace QuickGraph.Tests
             Assert.AreEqual(2, g.VertexCount);
             Assert.AreEqual(1, g.EdgeCount);
         }
+
+        [TestMethod()]
+        public void EdgeListGraphTestAddStuffNoParalelEquateable()
+        {
+            var g = new EdgeListGraph<int, EquatableEdge<int>>(true, false);
+            g.AddEdge(new EquatableEdge<int>(0, 1));
+            Assert.AreEqual(2, g.VertexCount);
+            Assert.AreEqual(1, g.EdgeCount);
+            g.AddEdge(new EquatableEdge<int>(0, 1));
+            Assert.AreEqual(2, g.VertexCount);
+            Assert.AreEqual(1, g.EdgeCount);
+        }
+
+        [TestMethod()]
+        public void EdgeListGraphTestContains()
+        {
+            var g = new EdgeListGraph<int, IEdge<int>>(true, false);
+            g.AddEdge(new Edge<int>(0, 1));
+            Assert.IsTrue(g.ContainsEdge(new Edge<int>(0, 1)));
+            Assert.IsFalse(g.ContainsEdge(new Edge<int>(2, 1)));
+            Assert.IsTrue(g.ContainsVertex(0));
+            Assert.IsTrue(g.ContainsVertex(1));
+            Assert.IsFalse(g.ContainsVertex(2));
+        }
+
+        [TestMethod()]
+        public void EdgeListGraphTestContainsEquateable()
+        {
+            var g = new EdgeListGraph<int, EquatableEdge<int>>(true, false);
+            g.AddEdge(new EquatableEdge<int>(0, 1));
+            Assert.IsTrue(g.ContainsEdge(new EquatableEdge<int>(0, 1)));
+            Assert.IsFalse(g.ContainsEdge(new EquatableEdge<int>(2, 1)));
+            Assert.IsTrue(g.ContainsVertex(0));
+            Assert.IsTrue(g.ContainsVertex(1));
+            Assert.IsFalse(g.ContainsVertex(2));
+        }
     }
 }
