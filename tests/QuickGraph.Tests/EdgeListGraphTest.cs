@@ -88,7 +88,8 @@ namespace QuickGraph.Tests
         {
             var g = new EdgeListGraph<int, IEdge<int>>(true, false);
             g.AddEdge(new Edge<int>(0, 1));
-            Assert.IsTrue(g.ContainsEdge(new Edge<int>(0, 1)));
+            var e = new Edge<int>(0, 1);
+            Assert.IsTrue(g.ContainsEdge(e));
             Assert.IsFalse(g.ContainsEdge(new Edge<int>(2, 1)));
             Assert.IsTrue(g.ContainsVertex(0));
             Assert.IsTrue(g.ContainsVertex(1));
