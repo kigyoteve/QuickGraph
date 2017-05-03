@@ -541,6 +541,7 @@
     <Compile Include="UndirectedGraphInvariant.cs" />
     <Compile Include="UndirectedGraphTest.cs" />
     <Compile Include="UndirectedGraphTVertexTEdgeTest.cs" />
+    <Compile Include="BidirectionalMatrixGraphTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\QuickGraph.Data\QuickGraph.Data.csproj">
