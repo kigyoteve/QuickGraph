@@ -475,6 +475,7 @@
       <DependentUpon>EdgeExtensionsTest.cs</DependentUpon>
     </Compile>
     <Compile Include="EdgeListGraphInvariant.cs" />
+    <Compile Include="EdgeListGraphTest.cs" />
     <Compile Include="EdgeListGraphTVertexTEdgeTest.cs" />
     <Compile Include="EdgeTVertexTest.Constructor.g.cs">
       <DependentUpon>EdgeTVertexTest.cs</DependentUpon>
@@ -522,12 +523,14 @@
     <Compile Include="Regression\DijkstraTest.cs" />
     <Compile Include="Regression\HoffmanPavleyTest.cs" />
     <Compile Include="Regression\ShortestPathBellmanFordTest.cs" />
+    <Compile Include="SEdgeTest.cs" />
     <Compile Include="Serialization\DirectedGraphMLExtensionsTest.cs" />
     <Compile Include="Serialization\GraphMLSerializerTest.cs" />
     <Compile Include="Serialization\GraphMLSerializerWithArgumentsTest.cs" />
     <Compile Include="Serialization\Repro13428.cs" />
     <Compile Include="Serialization\SystemSerializationTest.cs" />
     <Compile Include="Serialization\XmlSerializationTest.cs" />
+    <Compile Include="STaggedEdgeTest.cs" />
     <Compile Include="TaggedEdgeTVertexTTagTest.Constructor.g.cs">
       <DependentUpon>TaggedEdgeTVertexTTagTest.cs</DependentUpon>
     </Compile>
