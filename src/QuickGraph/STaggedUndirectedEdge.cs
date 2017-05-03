@@ -16,7 +16,7 @@ namespace QuickGraph
 #endif
     [DebuggerDisplay(EdgeExtensions.DebuggerDisplayTaggedUndirectedEdgeFormatString)]
     [StructLayout(LayoutKind.Auto)]
-    public struct SUndirectedTaggedEdge<TVertex, TTag>
+    public struct STaggedUndirectedEdge<TVertex, TTag>
         : IUndirectedEdge<TVertex>
         , ITagged<TTag>
     {
@@ -24,13 +24,13 @@ namespace QuickGraph
         private readonly TVertex target;
         private TTag tag;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SUndirectedTaggedEdge&lt;TVertex, TTag&gt;"/> class.
-        /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="target">The target.</param>
-        /// <param name="tag">The tag.</param>
-        public SUndirectedTaggedEdge(TVertex source, TVertex target, TTag tag)
+		/// <summary>
+		/// Initializes a new instance of the <see cref="STaggedUndirectedEdge&lt;TVertex, TTag&gt;"/> class.
+		/// </summary>
+		/// <param name="source">The source.</param>
+		/// <param name="target">The target.</param>
+		/// <param name="tag">The tag.</param>
+		public STaggedUndirectedEdge(TVertex source, TVertex target, TTag tag)
         {
             Contract.Requires(source != null);
             Contract.Requires(target != null);
