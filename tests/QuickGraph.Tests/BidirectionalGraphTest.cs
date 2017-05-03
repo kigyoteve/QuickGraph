@@ -1,6 +1,8 @@
 ﻿using QuickGraph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using QuickGraph.Predicates;
+using System.Collections.Generic;
 
 namespace QuickGraph.Tests
 {
@@ -105,5 +107,19 @@ namespace QuickGraph.Tests
              var graph = BidirectionalGraph<string, SEdge<string>>.LoadDot(dotSource, vertexFunc, edgeFunc);
              Assert.IsNotNull(graph);
          }
+
+        [TestMethod()]
+        public void removeIsolatedVertices()
+        {
+            var graph = new BidirectionalGraph<int, IEdge<int>>();
+            graph.AddVertex(1);
+            var edge = new EquatableEdge<int>(2, 3);
+            graph.AddVerticesAndEdge(edge);
+            var predicate = new IsolatedVertexPredicate<int, IEdge<int>>(graph);
+            graph.RemoveVertexIf(predicate.Test);
+            Assert.IsTrue(graph.ContainsVertex(2));
+            Assert.IsTrue(graph.ContainsEdge(edge));
+            Assert.IsFalse(graph.ContainsVertex(1));
+        }
     }
 }
