@@ -532,6 +532,7 @@
     <Compile Include="Serialization\XmlSerializationTest.cs" />
     <Compile Include="STaggedEdgeTest.cs" />
     <Compile Include="STaggedEquatableEdgeTest.cs" />
+    <Compile Include="STaggedUndirectedEdgeTest.cs" />
     <Compile Include="TaggedEdgeTVertexTTagTest.Constructor.g.cs">
       <DependentUpon>TaggedEdgeTVertexTTagTest.cs</DependentUpon>
     </Compile>
