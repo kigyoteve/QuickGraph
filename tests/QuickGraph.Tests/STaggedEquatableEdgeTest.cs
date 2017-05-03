@@ -27,11 +27,11 @@ namespace QuickGraph.Tests {
 
 			//equatable parts
 			var e2 = new STaggedEquatableEdge<int, int>(0, 1, 7);
-			Assert.IsFalse(e1.Equals(e2));
+			Assert.IsTrue(e1.Equals(e2));
 			Assert.IsFalse(e1.Equals(1));
-			Assert.IsFalse(e1 == e2);
-			Assert.IsTrue(e1 != e2);
-			Assert.IsFalse(e1.GetHashCode() == e2.GetHashCode());
+			Assert.IsTrue(e1 == e2);
+			Assert.IsFalse(e1 != e2);
+			Assert.IsTrue(e1.GetHashCode() == e2.GetHashCode());
 		}
 	}
 }
