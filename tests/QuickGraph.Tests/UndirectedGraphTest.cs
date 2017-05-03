@@ -2,6 +2,7 @@
 using System.Linq;
 using QuickGraph;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using QuickGraph.Predicates;
 
 namespace QuickGraph.Tests
 {
@@ -66,7 +67,7 @@ namespace QuickGraph.Tests
             var u = new UndirectedGraph<int, IEdge<int>>();
             var e12 = new SEquatableUndirectedEdge<int>(1, 2);
             var f12 = new SEquatableUndirectedEdge<int>(1, 2);
-                        
+
             bool exceptionOccurred = false;
             try
             {
@@ -128,6 +129,67 @@ namespace QuickGraph.Tests
 
             // obviously no edge between vertices 1, 3, as vertex 3 is not even present in the graph.
             Assert.IsFalse(g.ContainsEdge(1, 3));
+        }
+
+        [TestMethod()]
+        public void removeIsolatedVertices()
+        {
+            var graph = new UndirectedGraph<int, IEdge<int>>();
+            graph.AddVertex(1);
+            var edge = new EquatableEdge<int>(2, 3);
+            graph.AddVerticesAndEdge(edge);
+            graph.RemoveVertexIf(graph.IsAdjacentEdgesEmpty);
+            Assert.IsTrue(graph.ContainsVertex(2));
+            Assert.IsTrue(graph.ContainsEdge(edge));
+            Assert.IsTrue(graph.ContainsEdge(2, 3));
+            Assert.IsTrue(graph.ContainsEdge(3, 2));
+            Assert.IsFalse(graph.ContainsVertex(1));
+        }
+
+        [TestMethod()]
+        public void toBidirectionalGraphTest()
+        {
+            var graph = new UndirectedGraph<int, IEdge<int>>();
+            graph.AddVertex(1);
+            var edge = new EquatableEdge<int>(2, 3);
+            graph.AddVerticesAndEdge(edge);
+            var bidirectionalGraph = graph.ToBidirectionalGraph();
+            Assert.IsTrue(bidirectionalGraph.ContainsVertex(1));
+            Assert.IsTrue(bidirectionalGraph.ContainsVertex(2));
+            Assert.IsTrue(bidirectionalGraph.ContainsVertex(3));
+            Assert.IsTrue(bidirectionalGraph.ContainsEdge(2, 3));
+            Assert.IsFalse(bidirectionalGraph.ContainsEdge(3, 2));
+        }
+
+        [TestMethod()]
+        public void removeAdjacentEdgeIfTest()
+        {
+            var graph = new UndirectedGraph<int, IEdge<int>>();
+            graph.AddVertex(1);
+            graph.AddVertex(2);
+            graph.AddVertex(3);
+            graph.AddEdge(new EquatableEdge<int>(1, 2));
+            graph.AddEdge(new EquatableEdge<int>(1, 3));
+            graph.RemoveAdjacentEdgeIf(1, (edge) => edge.Target == 2);
+            Assert.IsTrue(graph.ContainsEdge(1, 3));
+            Assert.IsFalse(graph.ContainsEdge(1, 2));
+        }
+
+        [TestMethod()]
+        public void clearTest()
+        {
+            var graph = new UndirectedGraph<int, IEdge<int>>();
+            graph.AddVerticesAndEdge(new EquatableEdge<int>(1, 2));
+            graph.AddVerticesAndEdge(new EquatableEdge<int>(2, 3));
+            Assert.AreEqual(graph.EdgeCount, 2);
+            Assert.AreEqual(graph.VertexCount, 3);
+            Assert.IsFalse(graph.IsEdgesEmpty);
+            Assert.IsFalse(graph.IsVerticesEmpty);
+            graph.Clear();
+            Assert.AreEqual(graph.EdgeCount, 0);
+            Assert.AreEqual(graph.VertexCount, 0);
+            Assert.IsTrue(graph.IsEdgesEmpty);
+            Assert.IsTrue(graph.IsVerticesEmpty);
         }
     }
 }
