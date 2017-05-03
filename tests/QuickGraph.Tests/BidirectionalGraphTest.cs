@@ -121,5 +121,24 @@ namespace QuickGraph.Tests
             Assert.IsTrue(graph.ContainsEdge(edge));
             Assert.IsFalse(graph.ContainsVertex(1));
         }
+
+        [TestMethod()]
+        public void removeEdgeIfTest()
+        {
+            var graph = new BidirectionalGraph<int, IEdge<int>>();
+            graph.AddVertex(1);
+            graph.AddVertex(2);
+            graph.AddVertex(3);
+            graph.AddEdge(new EquatableEdge<int>(1, 2));
+            graph.AddEdge(new EquatableEdge<int>(2, 3));
+            graph.AddEdge(new EquatableEdge<int>(2, 1));
+            graph.RemoveOutEdgeIf(2, (edge) => edge.Target == 1);
+            Assert.IsTrue(graph.ContainsEdge(1, 2));
+            Assert.IsFalse(graph.ContainsEdge(2, 1));
+            Assert.IsTrue(graph.ContainsEdge(2, 3));
+            graph.RemoveInEdgeIf(2, (edge) => edge.Source == 1);
+            Assert.IsTrue(graph.ContainsEdge(2, 3));
+            Assert.IsFalse(graph.ContainsEdge(1, 2));
+        }
     }
 }
