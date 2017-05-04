@@ -144,7 +144,8 @@ namespace QuickGraph.Tests
         [TestMethod()]
         public void isOutEdgeEmptyTest()
         {
-            var graph = new BidirectionalGraph<int, IEdge<int>>(false);
+            var graph = new BidirectionalGraph<int, IEdge<int>>();
+            graph.AddVertex(0);
             Assert.IsTrue(graph.IsOutEdgesEmpty(0));
         }
     }
