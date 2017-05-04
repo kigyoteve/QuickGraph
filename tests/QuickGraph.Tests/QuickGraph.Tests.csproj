@@ -545,6 +545,7 @@
     <Compile Include="TestCategories.cs" />
     <Compile Include="TestHelper.cs" />
     <Compile Include="UndirectedBidirectionalGraphTest.cs" />
+    <Compile Include="UndirectedEdgeTest.cs" />
     <Compile Include="UndirectedGraphInvariant.cs" />
     <Compile Include="UndirectedGraphTest.cs" />
     <Compile Include="UndirectedGraphTVertexTEdgeTest.cs" />

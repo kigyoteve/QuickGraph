@@ -191,5 +191,22 @@ namespace QuickGraph.Tests
             Assert.IsTrue(graph.IsEdgesEmpty);
             Assert.IsTrue(graph.IsVerticesEmpty);
         }
+
+        [TestMethod()]
+        public void IsVerticesEmptyTest()
+        {
+            var g = new UndirectedGraph<int, IEdge<int>>();
+            Assert.IsTrue(g.IsVerticesEmpty);
+        }
+
+        [TestMethod]
+        public void RemoveVertexIfTest()
+        {
+            var g  = new UndirectedGraph<int, IEdge<int>>();
+            g.AddVertex(0);
+            g.AddVertex(1);
+            int result = g.RemoveVertexIf((vertex) => true);
+            Assert.AreEqual(result, 2);
+        }
     }
 }

@@ -140,5 +140,12 @@ namespace QuickGraph.Tests
             Assert.IsTrue(graph.ContainsEdge(2, 3));
             Assert.IsFalse(graph.ContainsEdge(1, 2));
         }
+
+        [TestMethod()]
+        public void isOutEdgeEmptyTest()
+        {
+            var graph = new BidirectionalGraph<int, IEdge<int>>(false);
+            Assert.IsTrue(graph.IsOutEdgesEmpty(0));
+        }
     }
 }

@@ -110,5 +110,27 @@ namespace QuickGraph.Tests
             Assert.IsTrue(g.ContainsVertex(1));
             Assert.IsFalse(g.ContainsVertex(2));
         }
+
+        [TestMethod()]
+        public void RemoveEdgeTest()
+        {
+            var g = new EdgeListGraph<int, EquatableEdge<int>>(true, false);
+            EquatableEdge<int> e = new EquatableEdge<int>(0, 1);
+            g.AddEdge(e);
+            Assert.IsTrue(g.RemoveEdge(e));
+            Assert.IsFalse(g.RemoveEdge(e));
+        }
+        
+        [TestMethod()]
+        public void CloneTest()
+        {
+            var g = new EdgeListGraph<int, EquatableEdge<int>>(true, false);
+            EquatableEdge<int> e = new EquatableEdge<int>(0, 1);
+            g.AddEdge(e);
+            var h = g.Clone();
+            Assert.Equals(g.IsDirected, h.IsDirected);
+            Assert.Equals(g.AllowParallelEdges, h.AllowParallelEdges);
+            Assert.Equals(g.Edges, h.Edges);
+        }
     }
 }
