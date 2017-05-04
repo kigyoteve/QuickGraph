@@ -20,7 +20,7 @@ namespace QuickGraph.Tests
             Assert.IsTrue(g.IsVerticesEmpty);
             Assert.AreEqual(g.VertexCount, 0);
             Assert.AreEqual(g.EdgeCount, 0);
-            var h = new EdgeListGraph<int, IEdge<int>>(false,false);
+            var h = new EdgeListGraph<int, IEdge<int>>(false, false);
             Assert.IsFalse(h.IsDirected);
             Assert.IsFalse(h.AllowParallelEdges);
             h.AddVerticesAndEdge(new EquatableEdge<int>(1, 2));
@@ -63,7 +63,7 @@ namespace QuickGraph.Tests
         [Ignore]
         public void EdgeListGraphTestAddStuffNoParalel()
         {
-            var g = new EdgeListGraph<int, IEdge<int>>(true,false);
+            var g = new EdgeListGraph<int, IEdge<int>>(true, false);
             g.AddEdge(new Edge<int>(0, 1));
             Assert.AreEqual(2, g.VertexCount);
             Assert.AreEqual(1, g.EdgeCount);
@@ -119,18 +119,6 @@ namespace QuickGraph.Tests
             g.AddEdge(e);
             Assert.IsTrue(g.RemoveEdge(e));
             Assert.IsFalse(g.RemoveEdge(e));
-        }
-        
-        [TestMethod()]
-        public void CloneTest()
-        {
-            var g = new EdgeListGraph<int, EquatableEdge<int>>(true, false);
-            EquatableEdge<int> e = new EquatableEdge<int>(0, 1);
-            g.AddEdge(e);
-            var h = g.Clone();
-            Assert.Equals(g.IsDirected, h.IsDirected);
-            Assert.Equals(g.AllowParallelEdges, h.AllowParallelEdges);
-            Assert.Equals(g.Edges, h.Edges);
         }
     }
 }
